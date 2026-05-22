@@ -15,33 +15,38 @@ export default function Hero() {
   const [typing, setTyping] = useState(true);
   const [charIndex, setCharIndex] = useState(0);
 
-  useEffect(() => {
-    const current = roles[roleIndex];
-    if (typing) {
-      if (charIndex < current.length) {
-        const t = setTimeout(() => {
-          setDisplayed(current.slice(0, charIndex + 1));
-          setCharIndex((c) => c + 1);
-        }, 60);
-        return () => clearTimeout(t);
-      } else {
-        const t = setTimeout(() => setTyping(false), 1800);
-        return () => clearTimeout(t);
-      }
+useEffect(() => {
+  const current = roles[roleIndex];
+
+  let timeout: NodeJS.Timeout;
+
+  if (typing) {
+    if (charIndex < current.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, charIndex + 1));
+        setCharIndex((c) => c + 1);
+      }, 60);
     } else {
-      if (charIndex > 0) {
-        const t = setTimeout(() => {
-          setDisplayed(current.slice(0, charIndex - 1));
-          setCharIndex((c) => c - 1);
-        }, 35);
-        return () => clearTimeout(t);
-      } else {
+      timeout = setTimeout(() => {
+        setTyping(false);
+      }, 1800);
+    }
+  } else {
+    if (charIndex > 0) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, charIndex - 1));
+        setCharIndex((c) => c - 1);
+      }, 35);
+    } else {
+      timeout = setTimeout(() => {
         setRoleIndex((i) => (i + 1) % roles.length);
         setTyping(true);
-      }
+      }, 300);
     }
-  }, [charIndex, typing, roleIndex]);
+  }
 
+  return () => clearTimeout(timeout);
+}, [charIndex, typing, roleIndex]);
   return (
     <section
       id="hero"
