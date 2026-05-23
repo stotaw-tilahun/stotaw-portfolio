@@ -25,10 +25,10 @@ export default function Contact() {
     {
       icon: "📧",
       label: "Email",
-      value: "stotawtilahun@gmail.com",
-      href: "mailto:stotawtilahun@gmail.com",
+      value: "stotawtilahun21@gmail.com",
+      href: "mailto:stotawtilahun21@gmail.com",
       color: "#6c63ff",
-      copyValue: "stotawtilahun@gmail.com",
+      copyValue: "stotawtilahun21@gmail.com",
     },
     {
       icon: "📞",
