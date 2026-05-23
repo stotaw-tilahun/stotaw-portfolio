@@ -88,7 +88,7 @@ export default function About() {
               border: "3px solid #6c63ff"
             }}
           >
-            <Image src="/profile.jpg" alt="Stotaw Tilahun" fill style={{ objectFit: "cover" }} />
+            <Image src="/profile.png" alt="Stotaw Tilahun" fill style={{ objectFit: "cover" }} />
           </div>
           <h3 style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: "12px" }}>
             Stotaw Tilahun
