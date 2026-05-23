@@ -148,7 +148,7 @@ useEffect(() => {
             overflow: "hidden",
           }}
         >
-          <Image src="/profile.jpg" alt="Profile" fill style={{ objectFit: "cover" }} />
+          <Image src="/profile.png" alt="Profile" fill style={{ objectFit: "cover" }} />
         </div>
 
         {/* Badge */}
